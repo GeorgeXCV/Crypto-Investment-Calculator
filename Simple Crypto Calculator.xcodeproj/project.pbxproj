@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A9693F81F04E087BC3B20E /* Pods_Simple_Crypto_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */; };
+		5E495C37223586A8002BEEDD /* CoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E495C36223586A8002BEEDD /* CoinAPI.swift */; };
 		5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */; };
 		5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06D221DE87D8002A5EAF /* ViewController.swift */; };
 		5E6A06D621DE87D8002A5EAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D421DE87D8002A5EAF /* Main.storyboard */; };
 		5E6A06D821DE87D9002A5EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D721DE87D9002A5EAF /* Assets.xcassets */; };
 		5E6A06DB21DE87D9002A5EAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D921DE87D9002A5EAF /* LaunchScreen.storyboard */; };
+		5EE1C2CF21E9187F007535CD /* CryptoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50638219555C670AFCC8E109 /* Pods-Simple Crypto Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Crypto Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		5E495C36223586A8002BEEDD /* CoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPI.swift; sourceTree = "<group>"; };
 		5E6A06CD21DE87D8002A5EAF /* Simple Crypto Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Crypto Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E6A06D221DE87D8002A5EAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		5E6A06D721DE87D9002A5EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E6A06DA21DE87D9002A5EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E6A06DC21DE87D9002A5EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewController.swift; sourceTree = "<group>"; };
+		808E4477D42C5B260C0EE37F /* Pods-Simple Crypto Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Crypto Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Crypto_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A9693F81F04E087BC3B20E /* Pods_Simple_Crypto_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				5E6A06CF21DE87D8002A5EAF /* Simple Crypto Calculator */,
 				5E6A06CE21DE87D8002A5EAF /* Products */,
+				A2CE53E8A4DE6D2EE8E5AE14 /* Pods */,
+				6FF6279AAC1303AD2D86CCE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +67,31 @@
 			children = (
 				5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */,
 				5E6A06D221DE87D8002A5EAF /* ViewController.swift */,
+				5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */,
+				5E495C36223586A8002BEEDD /* CoinAPI.swift */,
 				5E6A06D421DE87D8002A5EAF /* Main.storyboard */,
 				5E6A06D721DE87D9002A5EAF /* Assets.xcassets */,
 				5E6A06D921DE87D9002A5EAF /* LaunchScreen.storyboard */,
 				5E6A06DC21DE87D9002A5EAF /* Info.plist */,
 			);
 			path = "Simple Crypto Calculator";
+			sourceTree = "<group>";
+		};
+		6FF6279AAC1303AD2D86CCE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2CE53E8A4DE6D2EE8E5AE14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				808E4477D42C5B260C0EE37F /* Pods-Simple Crypto Calculator.debug.xcconfig */,
+				50638219555C670AFCC8E109 /* Pods-Simple Crypto Calculator.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E6A06DF21DE87D9002A5EAF /* Build configuration list for PBXNativeTarget "Simple Crypto Calculator" */;
 			buildPhases = (
+				53F01C634CC4B5140952DBC6 /* [CP] Check Pods Manifest.lock */,
 				5E6A06C921DE87D8002A5EAF /* Sources */,
 				5E6A06CA21DE87D8002A5EAF /* Frameworks */,
 				5E6A06CB21DE87D8002A5EAF /* Resources */,
+				64DFA7B1B9E22740D15E7AD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +162,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53F01C634CC4B5140952DBC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Simple Crypto Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64DFA7B1B9E22740D15E7AD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoCurrencyKit/CryptoCurrencyKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoCurrencyKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5E6A06C921DE87D8002A5EAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE1C2CF21E9187F007535CD /* CryptoTableViewController.swift in Sources */,
+				5E495C37223586A8002BEEDD /* CoinAPI.swift in Sources */,
 				5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */,
 				5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +361,7 @@
 		};
 		5E6A06E021DE87D9002A5EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 808E4477D42C5B260C0EE37F /* Pods-Simple Crypto Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +380,7 @@
 		};
 		5E6A06E121DE87D9002A5EAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50638219555C670AFCC8E109 /* Pods-Simple Crypto Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
