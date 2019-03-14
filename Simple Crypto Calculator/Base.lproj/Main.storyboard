@@ -24,6 +24,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="investmentEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yeH-5c-jrj"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-mo-mCe">
                                 <rect key="frame" x="74" y="338" width="209" height="30"/>
@@ -99,6 +102,9 @@
                     <navigationItem key="navigationItem" id="mVV-gA-VVM"/>
                     <connections>
                         <outlet property="cryptoNameButton" destination="G6h-u7-UeD" id="BsE-FN-wFs"/>
+                        <outlet property="investAmount" destination="xPs-hF-0TT" id="Lxc-dc-HcP"/>
+                        <outlet property="worthAmount" destination="hUK-mo-mCe" id="x8K-Mi-WX4"/>
+                        <outlet property="wouldBe" destination="ueh-tT-TlZ" id="Sfu-XV-dw9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

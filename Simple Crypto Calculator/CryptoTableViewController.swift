@@ -15,6 +15,7 @@ class CryptoTableViewController: UITableViewController {
    
     // Place to store name of cell selected for previous View
     var cellName = ""
+    var cryptoPrice: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,8 @@ class CryptoTableViewController: UITableViewController {
         
         cell.textLabel?.text = crypto.name
         
+        cryptoPrice = crypto.price  // Store price in our empty property
+        
         return cell
     }
 
@@ -91,6 +94,7 @@ class CryptoTableViewController: UITableViewController {
             let vc = segue.destination as! ViewController           // We want to access ViewController
 //            vc.cryptoNameButton.setTitle(cellName, for: .normal)
              vc.cryptoName = cellName                               // Pass cellName (no longer empty) to our empty variable on ViewController
+             vc.cryptoPrice = cryptoPrice       // Pass price data to our property in ViewController
 
         }
     }
