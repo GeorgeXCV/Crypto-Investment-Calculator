@@ -59,9 +59,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if let projection = Double(text) { // If worthAmount has text to convert to Double
             totalValue = coinsBought * projection    // Amount of coins we can buy * Projected value per coin = Investment worth
+            
+            let currencyFormatter = NumberFormatter()
+            currencyFormatter.usesGroupingSeparator = true
+            currencyFormatter.numberStyle = .currency
+            currencyFormatter.locale = Locale.current
+            
+            let result = "\(totalValue)"
+            
+            wouldBe.text = currencyFormatter.string(for: totalValue)!
+            
+//            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
+
         
             
-           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
+//           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
      }
     }
  
