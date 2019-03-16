@@ -59,7 +59,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if let projection = Double(text) { // If worthAmount has text to convert to Double
             totalValue = coinsBought * projection    // Amount of coins we can buy * Projected value per coin = Investment worth
-            wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
+        
+            
+           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
      }
     }
  

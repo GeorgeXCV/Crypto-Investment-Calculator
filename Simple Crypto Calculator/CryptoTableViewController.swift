@@ -71,17 +71,20 @@ class CryptoTableViewController: UITableViewController {
         
         cell.textLabel?.text = crypto.name
         
-        cryptoPrice = crypto.price  // Store price in our empty property
-        
         return cell
     }
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let indexPath = tableView.indexPathForSelectedRow
-        let cell = tableView.cellForRow(at: indexPath!)
-        cellName = cell!.textLabel!.text!                                   // Copy text from select Cell to our empty property
+        let indexPath = tableView.indexPathForSelectedRow           // New property set to selected row
+        let cell = tableView.cellForRow(at: indexPath!)             // Property to reference cell selected
+        cellName = cell!.textLabel!.text!                           // Copy text from select Cell to our empty property
+        
+        let crypto = cryptocurrencies[indexPath!.row]               // Access row selected in our JSON
+        cryptoPrice = crypto.price                                  // Store price in our empty property
+//        print(cryptoPrice)
+
         performSegue(withIdentifier: "cryptoSelected", sender: indexPath)   // Go back to previous View
         
         
@@ -92,7 +95,6 @@ class CryptoTableViewController: UITableViewController {
         // If go back segue has been triggered
         if segue.identifier == "cryptoSelected" {
             let vc = segue.destination as! ViewController           // We want to access ViewController
-//            vc.cryptoNameButton.setTitle(cellName, for: .normal)
              vc.cryptoName = cellName                               // Pass cellName (no longer empty) to our empty variable on ViewController
              vc.cryptoPrice = cryptoPrice       // Pass price data to our property in ViewController
 
