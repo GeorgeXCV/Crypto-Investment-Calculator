@@ -17,7 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var wouldBe: UILabel!
     @IBOutlet var cryptoNameButton: UIButton!
     
-    // Store JSON results here
+    // Arrays to store our currency JSON data
+    var currencyName = [String]()
+    var currencySymbol = [String]()
+    var currencyRate = [Double]()
+    
+    
+    // Store Crypto JSON results from tableview here
     var cryptoName = ""
     var cryptoPrice: Double?
     
@@ -35,7 +41,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if cryptoName.count > 1 {
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
+        
+//        // API for Currency data
+//        let urlString = "https://api.coinstats.app/public/v1/fiats"
+//
+//        if let url = URL(string: urlString) {           // If URL is valid
+//            if let data = try? Data(contentsOf: url) {  // Create a Data object and return the contents of the URL
+//                // We're OK to parse!
+//                parse(json: data)
+//
+//                return
+//            }
+//        }
     }
+    
+//    func parse(json: Data) {
+//        // Creates an instance of JSONDecoder, which is dedicated to converting between JSON and Codable objects.
+//        let decoder = JSONDecoder()
+//
+//        // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
+//
+//
+//        if let jsonFiat = try? decoder.decode(Currency.self, from: json) {
+//            currencyName = [jsonFiat.name]
+//            print(currencyName)
+//        }
+//    }
+//
+
     
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
@@ -64,9 +97,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
+        
+            // Convert currency here
+
             
             let result = "\(totalValue)"
             
+        
             wouldBe.text = currencyFormatter.string(for: totalValue)!
             
 //            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
