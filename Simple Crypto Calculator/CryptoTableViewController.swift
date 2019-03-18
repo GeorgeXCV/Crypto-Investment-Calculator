@@ -23,6 +23,10 @@ class CryptoTableViewController: UITableViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+    }
+    
+    @objc func fetchJSON() {
         // API for coin data
         let urlString = "https://api.coinstats.app/public/v1/coins?skip=0&limit=10"
         
@@ -33,15 +37,10 @@ class CryptoTableViewController: UITableViewController {
                 return
             }
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Show Error if failed
+        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
     }
-    
-    
+
     func parse(json: Data) {
         // Creates an instance of JSONDecoder, which is dedicated to converting between JSON and Codable objects.
         let decoder = JSONDecoder()
@@ -49,13 +48,11 @@ class CryptoTableViewController: UITableViewController {
         // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
         if let jsonCrypto = try? decoder.decode(Cryptocurrencies.self, from: json) {
             cryptocurrencies = jsonCrypto.coins    // JSON was converted successfully, assign the cryptocurrencies array to our Coins property then reload the table view.
-            tableView.reloadData()
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        } else {
+            performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
     }
-
-
-    // MARK: - Table view data source
-
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -86,8 +83,6 @@ class CryptoTableViewController: UITableViewController {
 //        print(cryptoPrice)
 
         performSegue(withIdentifier: "cryptoSelected", sender: indexPath)   // Go back to previous View
-        
-        
     }
 
     
@@ -101,50 +96,10 @@ class CryptoTableViewController: UITableViewController {
         }
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    @objc func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -18,10 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var cryptoNameButton: UIButton!
     
     // Arrays to store our currency JSON data
-    var currencyName = [String]()
-    var currencySymbol = [String]()
-    var currencyRate = [Double]()
-    
+    var currencies = [String]()
     
     // Store Crypto JSON results from tableview here
     var cryptoName = ""
@@ -31,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var coinsBought: Double = 0
     var totalValue: Double = 0
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,34 +39,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
         
-//        // API for Currency data
-//        let urlString = "https://api.coinstats.app/public/v1/fiats"
-//
-//        if let url = URL(string: urlString) {           // If URL is valid
-//            if let data = try? Data(contentsOf: url) {  // Create a Data object and return the contents of the URL
-//                // We're OK to parse!
-//                parse(json: data)
-//
-//                return
-//            }
-//        }
+        if currencies.count > 1 {
+            print(currencies)
+        }
     }
     
-//    func parse(json: Data) {
-//        // Creates an instance of JSONDecoder, which is dedicated to converting between JSON and Codable objects.
-//        let decoder = JSONDecoder()
-//
-//        // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
-//
-//
-//        if let jsonFiat = try? decoder.decode(Currency.self, from: json) {
-//            currencyName = [jsonFiat.name]
-//            print(currencyName)
-//        }
-//    }
-//
+    @objc func fetchJSON() {
+        // API for Currency data
+        let urlString = "https://api.coinstats.app/public/v1/fiats"
+        
+        if let url = URL(string: urlString) {           // If URL is valid
+            if let data = try? Data(contentsOf: url) {  // Create a Data object and return the contents of the URL
+                // We're OK to parse!
+                parse(json: data)
+                return
+            }
+        }
+        // Show Error if failed
+        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+    }
 
-    
+    func parse(json: Data) {
+        // Creates an instance of JSONDecoder, which is dedicated to converting between JSON and Codable objects.
+        let decoder = JSONDecoder()
+
+        // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
+        if let jsonFiat = try? decoder.decode(Currency.self, from: json) {
+            currencies = [jsonFiat.name]
+        } else {
+            performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+        }
+    }
+
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
         // If text value exists, perform below code
@@ -100,24 +101,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
             // Convert currency here
 
-            
-            let result = "\(totalValue)"
-            
         
             wouldBe.text = currencyFormatter.string(for: totalValue)!
             
 //            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
-
-        
             
 //           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
      }
+}
+    
+    @objc func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
  
     // If I invest £100 in EOS which is £1.85 a coin, £100 / £1.85 = 54 Coins. If value per coin goes up to £10, (54 * 10), my investment is worth £540
-    
 }
-
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
