@@ -15,6 +15,7 @@
 		5E6A06D821DE87D9002A5EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D721DE87D9002A5EAF /* Assets.xcassets */; };
 		5E6A06DB21DE87D9002A5EAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D921DE87D9002A5EAF /* LaunchScreen.storyboard */; };
 		5EC5F360223E91C00003D85F /* FiatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5F35F223E91C00003D85F /* FiatAPI.swift */; };
+		5EC5F36222417CFB0003D85F /* ConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */; };
 		5EE1C2CF21E9187F007535CD /* CryptoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		5E6A06DA21DE87D9002A5EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E6A06DC21DE87D9002A5EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EC5F35F223E91C00003D85F /* FiatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatAPI.swift; sourceTree = "<group>"; };
+		5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterTableViewController.swift; sourceTree = "<group>"; };
 		5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewController.swift; sourceTree = "<group>"; };
 		808E4477D42C5B260C0EE37F /* Pods-Simple Crypto Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Crypto Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Crypto_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */,
 				5E6A06D221DE87D8002A5EAF /* ViewController.swift */,
 				5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */,
+				5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */,
 				5E495C36223586A8002BEEDD /* CoinAPI.swift */,
 				5EC5F35F223E91C00003D85F /* FiatAPI.swift */,
 				5E6A06D421DE87D8002A5EAF /* Main.storyboard */,
@@ -221,6 +224,7 @@
 				5E495C37223586A8002BEEDD /* CoinAPI.swift in Sources */,
 				5EC5F360223E91C00003D85F /* FiatAPI.swift in Sources */,
 				5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */,
+				5EC5F36222417CFB0003D85F /* ConverterTableViewController.swift in Sources */,
 				5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
