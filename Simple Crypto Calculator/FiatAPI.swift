@@ -14,3 +14,4 @@ struct Currency: Codable {
     let symbol: String
 
 }
+

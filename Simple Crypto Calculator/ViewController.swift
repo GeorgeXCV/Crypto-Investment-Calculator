@@ -39,9 +39,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
         
-        if currencies.count > 1 {
-            print(currencies)
-        }
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+
+        
     }
     
     @objc func fetchJSON() {
@@ -64,11 +64,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let decoder = JSONDecoder()
 
         // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
-        if let jsonFiat = try? decoder.decode(Currency.self, from: json) {
-            currencies = [jsonFiat.name]
+        if let jsonFiat = try? decoder.decode([Currency].self, from: json) {
+            currencies = jsonFiat.map { $0.name}
+            test()
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
+    }
+    
+    func test(){
+     print(currencies)
     }
 
     // When investment amount eneted
