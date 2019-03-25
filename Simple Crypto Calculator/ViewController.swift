@@ -8,6 +8,9 @@
 
 import UIKit
 
+// Tracker for currecny selection
+public var buttonCounter = 0
+
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,9 +19,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var worthAmount: UITextField!
     @IBOutlet var wouldBe: UILabel!
     @IBOutlet var cryptoNameButton: UIButton!
+    @IBOutlet var currencyButton: UIButton!
+    @IBOutlet var currencySymbol: UILabel!
+    @IBOutlet var currencySymbol2: UILabel!
     
     // Arrays to store our currency JSON data
     var currencies = [String]()
+    var symbols = [String]()
     
     // Store Crypto JSON results from tableview here
     var cryptoName = ""
@@ -38,10 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if cryptoName.count > 1 {
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
-        
-        performSelector(inBackground: #selector(fetchJSON), with: nil)
-
-        
+        performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
+//        performSelector(inBackground: #selector(fetchJSON), with: nil)
+    
     }
     
     @objc func fetchJSON() {
@@ -52,6 +58,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if let data = try? Data(contentsOf: url) {  // Create a Data object and return the contents of the URL
                 // We're OK to parse!
                 parse(json: data)
+                loadCurrencySetting()
                 return
             }
         }
@@ -65,17 +72,51 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
         if let jsonFiat = try? decoder.decode([Currency].self, from: json) {
-            currencies = jsonFiat.map { $0.name}
-            test()
+            currencies = jsonFiat.map { $0.name }
+            symbols = jsonFiat.map { $0.symbol }
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
     }
     
-    func test(){
-     print(currencies)
-    }
 
+    func saveCurrency() {
+        // If button has been tapped 33 times, reset tracker to 0 as we only have 33 currencies.
+        if buttonCounter >= 33 {
+            buttonCounter = 0
+        }
+        UserDefaults.standard.set(buttonCounter, forKey: "currency")        // Save value of buttonCounter in a key called currency
+        currencyButton.setTitle(currencies[buttonCounter], for: .normal)    // Set title of currency button
+        currencySymbol.text = symbols[buttonCounter]                        // Set currency symbol too
+        currencySymbol2.text = currencySymbol.text
+//        finalURL = baseURL + currencyArray[buttonCounter]
+//        currencySelected = currencySymbolArray[buttonCounter]
+//        getBitcoinData(url: finalURL)
+    }
+    
+    @IBAction func currencySwitched(_ sender: UIButton) {
+        // Each time button pressed, add one to our tracker and run saveCurrecny method.
+        buttonCounter += 1
+        saveCurrency()
+    }
+    
+    func loadCurrencySetting() {
+        if let currency: Int? = UserDefaults.standard.integer(forKey: "currency") {
+            buttonCounter = currency!
+            currencyButton.setTitle(currencies[buttonCounter], for: .normal)
+            currencySymbol.text = symbols[buttonCounter]
+            currencySymbol2.text = currencySymbol.text
+            //            finalURL = baseURL + currencyArray[currency!]
+            //            currencySelected = currencySymbolArray[currency!]
+            //            getBitcoinData(url: finalURL)
+        }
+        else {
+            saveCurrency()
+        }
+    }
+    
+    
+    
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
         // If text value exists, perform below code
