@@ -102,7 +102,7 @@
                                     <action selector="currencySwitched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7X-Im-fQU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="= £" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueh-tT-TlZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="= $" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueh-tT-TlZ">
                                 <rect key="frame" x="56" y="545" width="263" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -182,12 +182,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="cRz-jX-iip" kind="show" identifier="cryptoSelected" id="hYH-JC-1sw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cryptoSelected" id="fuf-55-ww4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHT-Le-bnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2791" y="27"/>
+            <point key="canvasLocation" x="2727" y="27"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="joi-Pw-ty1">
@@ -208,4 +208,8 @@
             <point key="canvasLocation" x="849" y="58"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KL7-bH-18F"/>
+        <segue reference="fuf-55-ww4"/>
+    </inferredMetricsTieBreakers>
 </document>

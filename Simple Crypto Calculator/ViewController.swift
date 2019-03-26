@@ -26,6 +26,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Arrays to store our currency JSON data
     var currencies = [String]()
     var symbols = [String]()
+    var exchangerates = [Double]()
+    
+    // Store our chosen property from exchangerates array
+    var rate: Double = 0
     
     // Store Crypto JSON results from tableview here
     var cryptoName = ""
@@ -74,6 +78,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let jsonFiat = try? decoder.decode([Currency].self, from: json) {
             currencies = jsonFiat.map { $0.name }
             symbols = jsonFiat.map { $0.symbol }
+            exchangerates  = jsonFiat.map { $0.rate }
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
@@ -89,6 +94,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currencyButton.setTitle(currencies[buttonCounter], for: .normal)    // Set title of currency button
         currencySymbol.text = symbols[buttonCounter]                        // Set currency symbol too
         currencySymbol2.text = currencySymbol.text
+        rate = exchangerates[buttonCounter]
+        wouldBe.text = "= \(currencySymbol.text!)"
 //        finalURL = baseURL + currencyArray[buttonCounter]
 //        currencySelected = currencySymbolArray[buttonCounter]
 //        getBitcoinData(url: finalURL)
@@ -106,6 +113,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currencyButton.setTitle(currencies[buttonCounter], for: .normal)
             currencySymbol.text = symbols[buttonCounter]
             currencySymbol2.text = currencySymbol.text
+            rate = exchangerates[buttonCounter]
+            wouldBe.text = "= \(currencySymbol.text!)"
             //            finalURL = baseURL + currencyArray[currency!]
             //            currencySelected = currencySymbolArray[currency!]
             //            getBitcoinData(url: finalURL)
@@ -125,7 +134,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         if let invest = Double(text) { // If we can convert value of textfield to Double
          if let coinPrice = cryptoPrice { // And if cryptoPrice has a value
-            coinsBought = invest / coinPrice // Investment amount / current coin price = How many coins we would buy
+            let coinPriceConverted = coinPrice * rate   // Convert price using exchange rate of selected currency
+            coinsBought = invest / coinPriceConverted // Investment amount / current coin price = How many coins we would buy
         }
     }
 }
@@ -138,17 +148,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if let projection = Double(text) { // If worthAmount has text to convert to Double
-            totalValue = coinsBought * projection    // Amount of coins we can buy * Projected value per coin = Investment worth
+            totalValue = coinsBought * projection  // Amount of coins we can buy * Projected value per coin = Investment worth
             
             let currencyFormatter = NumberFormatter()
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
-            currencyFormatter.locale = Locale.current
-        
-            // Convert currency here
-
-        
-            wouldBe.text = currencyFormatter.string(for: totalValue)!
+//          currencyFormatter.locale = Locale.current
+            currencyFormatter.currencySymbol = currencySymbol.text!
+            
+            // Round up answer
+            wouldBe.text = "= " + currencyFormatter.string(for: totalValue)!
             
 //            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
             
