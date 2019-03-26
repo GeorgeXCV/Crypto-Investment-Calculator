@@ -96,14 +96,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currencySymbol2.text = currencySymbol.text
         rate = exchangerates[buttonCounter]
         wouldBe.text = "= \(currencySymbol.text!)"
-//        finalURL = baseURL + currencyArray[buttonCounter]
-//        currencySelected = currencySymbolArray[buttonCounter]
-//        getBitcoinData(url: finalURL)
     }
     
     @IBAction func currencySwitched(_ sender: UIButton) {
         // Each time button pressed, add one to our tracker and run saveCurrecny method.
         buttonCounter += 1
+        // Reset text input fields
+        investAmount.text = "0"
+        worthAmount.text = "0"
         saveCurrency()
     }
     
@@ -115,9 +115,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currencySymbol2.text = currencySymbol.text
             rate = exchangerates[buttonCounter]
             wouldBe.text = "= \(currencySymbol.text!)"
-            //            finalURL = baseURL + currencyArray[currency!]
-            //            currencySelected = currencySymbolArray[currency!]
-            //            getBitcoinData(url: finalURL)
         }
         else {
             saveCurrency()
