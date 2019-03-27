@@ -8,9 +8,8 @@
 
 import UIKit
 
-// Tracker for currecny selection
+// Tracker for currecny selection button
 public var buttonCounter = 0
-
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,8 +20,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var cryptoNameButton: UIButton!
     @IBOutlet var currencyButton: UIButton!
     @IBOutlet var currencySymbol: UILabel!
-    @IBOutlet var currencySymbol2: UILabel!
+    @IBOutlet var currencySymbolTwo: UILabel!
     
+
     // Arrays to store our currency JSON data
     var currencies = [String]()
     var symbols = [String]()
@@ -39,18 +39,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var coinsBought: Double = 0
     var totalValue: Double = 0
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.hideKeyboardWhenTappedAround()
         
+        self.hideKeyboardWhenTappedAround()
+    
         // If cryptoName has a value, use that as title
         if cryptoName.count > 1 {
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
         performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
 //        performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
+        investAmount.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        worthAmount.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     
     }
     
@@ -76,6 +78,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Call the decode() method on that decoder, asking it to convert our json data into a Cryptocurrencies object.
         if let jsonFiat = try? decoder.decode([Currency].self, from: json) {
+            // Store JSON data in our empty arrays
             currencies = jsonFiat.map { $0.name }
             symbols = jsonFiat.map { $0.symbol }
             exchangerates  = jsonFiat.map { $0.rate }
@@ -92,18 +95,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         UserDefaults.standard.set(buttonCounter, forKey: "currency")        // Save value of buttonCounter in a key called currency
         currencyButton.setTitle(currencies[buttonCounter], for: .normal)    // Set title of currency button
-        currencySymbol.text = symbols[buttonCounter]                        // Set currency symbol too
-        currencySymbol2.text = currencySymbol.text
+        currencySymbol.text = symbols[buttonCounter]                        // Add active currency symbol to text fields
+        currencySymbolTwo.text = currencySymbol.text
         rate = exchangerates[buttonCounter]
-        wouldBe.text = "= \(currencySymbol.text!)"
+        wouldBe.text = "= \(symbols[buttonCounter])"
     }
     
     @IBAction func currencySwitched(_ sender: UIButton) {
         // Each time button pressed, add one to our tracker and run saveCurrecny method.
         buttonCounter += 1
         // Reset text input fields
-        investAmount.text = "0"
-        worthAmount.text = "0"
+        investAmount.text = ""
+        worthAmount.text = ""
         saveCurrency()
     }
     
@@ -112,16 +115,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             buttonCounter = currency!
             currencyButton.setTitle(currencies[buttonCounter], for: .normal)
             currencySymbol.text = symbols[buttonCounter]
-            currencySymbol2.text = currencySymbol.text
+            currencySymbolTwo.text = currencySymbol.text
             rate = exchangerates[buttonCounter]
-            wouldBe.text = "= \(currencySymbol.text!)"
+            wouldBe.text = "= \(symbols[buttonCounter])"
         }
         else {
             saveCurrency()
         }
     }
-    
-    
     
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
@@ -151,7 +152,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
 //          currencyFormatter.locale = Locale.current
-            currencyFormatter.currencySymbol = currencySymbol.text!
+            currencyFormatter.currencySymbol = symbols[buttonCounter]
             
             // Round up answer
             wouldBe.text = "= " + currencyFormatter.string(for: totalValue)!

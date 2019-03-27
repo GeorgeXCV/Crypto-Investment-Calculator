@@ -23,6 +23,8 @@ class CryptoTableViewController: UITableViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.tableView.backgroundColor = UIColor.black
+        
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }
     
@@ -59,6 +61,9 @@ class CryptoTableViewController: UITableViewController {
         return cryptocurrencies.count
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
@@ -66,6 +71,7 @@ class CryptoTableViewController: UITableViewController {
         
         let crypto = cryptocurrencies[indexPath.row]
         
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = crypto.name
         
         return cell
@@ -101,5 +107,10 @@ class CryptoTableViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
+    
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }
