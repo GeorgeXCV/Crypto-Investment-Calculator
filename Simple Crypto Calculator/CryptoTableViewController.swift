@@ -16,6 +16,7 @@ class CryptoTableViewController: UITableViewController {
     // Place to store name of cell selected for previous View
     var cellName = ""
     var cryptoPrice: Double?
+    var cryptoSymbol = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +70,12 @@ class CryptoTableViewController: UITableViewController {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let crypto = cryptocurrencies[indexPath.row]
+        let crypto = cryptocurrencies[indexPath.row]                // Access row selected in our JSON
+        cryptoPrice = crypto.price                                  // Store price in our empty property
+//        cryptoSymbol = "\(crypto.symbol)"
         
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = crypto.name
+        cell.textLabel?.text = crypto.name + " (\(crypto.symbol))"
         
         return cell
     }
@@ -84,10 +87,6 @@ class CryptoTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath!)             // Property to reference cell selected
         cellName = cell!.textLabel!.text!                           // Copy text from select Cell to our empty property
         
-        let crypto = cryptocurrencies[indexPath!.row]               // Access row selected in our JSON
-        cryptoPrice = crypto.price                                  // Store price in our empty property
-//        print(cryptoPrice)
-
         performSegue(withIdentifier: "cryptoSelected", sender: indexPath)   // Go back to previous View
     }
 
@@ -98,6 +97,7 @@ class CryptoTableViewController: UITableViewController {
             let vc = segue.destination as! ViewController           // We want to access ViewController
              vc.cryptoName = cellName                               // Pass cellName (no longer empty) to our empty variable on ViewController
              vc.cryptoPrice = cryptoPrice       // Pass price data to our property in ViewController
+//            vc.cryptoSymbol = cryptoSymbol
 
         }
     }

@@ -14,6 +14,7 @@ struct Cryptocurrencies: Codable {
 
 struct Cryptocurrency: Codable {
     var name: String
+    var symbol: String 
     var icon: String
     var price: Double
     

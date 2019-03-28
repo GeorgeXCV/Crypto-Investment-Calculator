@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var currencyButton: UIButton!
     @IBOutlet var currencySymbol: UILabel!
     @IBOutlet var currencySymbolTwo: UILabel!
+    @IBOutlet var currentPrice: UILabel!
     
 
     // Arrays to store our currency JSON data
@@ -34,6 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Store Crypto JSON results from tableview here
     var cryptoName = ""
     var cryptoPrice: Double?
+//    var cryptoSymbol = ""
     
     // Empty property to store calcuations
     var coinsBought: Double = 0
@@ -46,8 +48,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
         // If cryptoName has a value, use that as title
         if cryptoName.count > 1 {
+            cryptoName.removeLast(6)
             cryptoNameButton.setTitle(cryptoName, for: .normal)
         }
+        
+        if let price = cryptoPrice {
+            let realPrice = price * rate
+            
+            
+            currentPrice.text = "Currently = \(realPrice)"
+            currentPrice.isHidden = false 
+        }
+        
         performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
 //        performSelector(inBackground: #selector(fetchJSON), with: nil)
         
