@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Store Crypto JSON results from tableview here
     var cryptoName = ""
     var cryptoPrice: Double?
-//    var cryptoSymbol = ""
+    var cryptoSymbol = ""
     
     // Empty property to store calcuations
     var coinsBought: Double = 0
@@ -50,14 +50,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if cryptoName.count > 1 {
             cryptoName.removeLast(6)
             cryptoNameButton.setTitle(cryptoName, for: .normal)
-        }
-        
-        if let price = cryptoPrice {
-            let realPrice = price * rate
-            
-            
-            currentPrice.text = "Currently = \(realPrice)"
-            currentPrice.isHidden = false 
         }
         
         performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
@@ -111,6 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currencySymbolTwo.text = currencySymbol.text
         rate = exchangerates[buttonCounter]
         wouldBe.text = "= \(symbols[buttonCounter])"
+        currentPriceLabel()
     }
     
     @IBAction func currencySwitched(_ sender: UIButton) {
@@ -130,9 +123,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currencySymbolTwo.text = currencySymbol.text
             rate = exchangerates[buttonCounter]
             wouldBe.text = "= \(symbols[buttonCounter])"
+            currentPriceLabel()
         }
         else {
             saveCurrency()
+        }
+    }
+    
+    func currentPriceLabel() {
+        if let coinPrice = cryptoPrice { // And if cryptoPrice has a value
+            let currencyFormatter = NumberFormatter()
+            currencyFormatter.usesGroupingSeparator = true
+            currencyFormatter.numberStyle = .currency
+            currencyFormatter.currencySymbol = symbols[buttonCounter]
+            
+        let coinPriceConverted = coinPrice * rate   // Convert price using exchange rate of selected currency
+            currentPrice.text = "1 \(cryptoSymbol) = " + currencyFormatter.string(for: coinPriceConverted)!
+        currentPrice.isHidden = false
         }
     }
     
