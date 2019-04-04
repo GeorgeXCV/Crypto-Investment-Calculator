@@ -75,6 +75,12 @@ class CryptoTableViewController: UITableViewController {
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = crypto.name + " (\(crypto.symbol))"
         
+        // Cell Image Icon 
+        let imageUrl = URL(string: crypto.icon)!
+        let imageData = try! Data(contentsOf: imageUrl)
+        let image = UIImage(data: imageData)
+        cell.imageView?.image = image
+     
         return cell
     }
 

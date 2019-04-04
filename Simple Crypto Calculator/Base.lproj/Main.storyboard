@@ -212,7 +212,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHT-Le-bnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2727" y="27"/>
+            <point key="canvasLocation" x="2725.5999999999999" y="26.53673163418291"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="joi-Pw-ty1">
@@ -235,7 +235,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KL7-bH-18F"/>
         <segue reference="fuf-55-ww4"/>
     </inferredMetricsTieBreakers>
 </document>
