@@ -169,6 +169,7 @@
         <!--Currency-->
         <scene sceneID="pXr-gt-cGk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHT-Le-bnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Currency" id="9zH-Aa-zxg" customClass="CryptoTableViewController" customModule="Simple_Crypto_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4nr-Q3-j0z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -210,7 +211,6 @@
                         <segue destination="BYZ-38-t0r" kind="show" identifier="cryptoSelected" id="fuf-55-ww4"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yHT-Le-bnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2725.5999999999999" y="26.53673163418291"/>
         </scene>

@@ -27,11 +27,12 @@ class CryptoTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.black
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
     }
     
     @objc func fetchJSON() {
         // API for coin data
-        let urlString = "https://api.coinstats.app/public/v1/coins?skip=0&limit=10"
+        let urlString = "https://api.coinstats.app/public/v1/coins?skip=0&limit=200"
         
         if let url = URL(string: urlString) {           // If URL is valid
             if let data = try? Data(contentsOf: url) {  // Create a Data object and return the contents of the URL
@@ -56,7 +57,8 @@ class CryptoTableViewController: UITableViewController {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
     }
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return cryptocurrencies.count
@@ -120,5 +122,5 @@ class CryptoTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
 }
+
