@@ -25,6 +25,9 @@ class CryptoTableViewController: UITableViewController {
         self.tableView.delegate = self
         
         self.tableView.backgroundColor = UIColor.black
+        tableView.separatorColor = UIColor.lightGray
+        
+        
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         
@@ -76,6 +79,8 @@ class CryptoTableViewController: UITableViewController {
         
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = crypto.name + " (\(crypto.symbol))"
+        
+        cell.sizeToFit()
         
         // Cell Image Icon 
         let imageUrl = URL(string: crypto.icon)!

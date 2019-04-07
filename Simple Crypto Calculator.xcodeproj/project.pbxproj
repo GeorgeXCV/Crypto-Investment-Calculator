@@ -15,7 +15,6 @@
 		5E6A06D821DE87D9002A5EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D721DE87D9002A5EAF /* Assets.xcassets */; };
 		5E6A06DB21DE87D9002A5EAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A06D921DE87D9002A5EAF /* LaunchScreen.storyboard */; };
 		5EC5F360223E91C00003D85F /* FiatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5F35F223E91C00003D85F /* FiatAPI.swift */; };
-		5EC5F36222417CFB0003D85F /* ConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */; };
 		5EE1C2CF21E9187F007535CD /* CryptoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		5E6A06DA21DE87D9002A5EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E6A06DC21DE87D9002A5EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EC5F35F223E91C00003D85F /* FiatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatAPI.swift; sourceTree = "<group>"; };
-		5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterTableViewController.swift; sourceTree = "<group>"; };
 		5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewController.swift; sourceTree = "<group>"; };
 		808E4477D42C5B260C0EE37F /* Pods-Simple Crypto Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Crypto Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Crypto_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +70,6 @@
 				5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */,
 				5E6A06D221DE87D8002A5EAF /* ViewController.swift */,
 				5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */,
-				5EC5F36122417CFB0003D85F /* ConverterTableViewController.swift */,
 				5E495C36223586A8002BEEDD /* CoinAPI.swift */,
 				5EC5F35F223E91C00003D85F /* FiatAPI.swift */,
 				5E6A06D421DE87D8002A5EAF /* Main.storyboard */,
@@ -111,7 +108,7 @@
 				5E6A06C921DE87D8002A5EAF /* Sources */,
 				5E6A06CA21DE87D8002A5EAF /* Frameworks */,
 				5E6A06CB21DE87D8002A5EAF /* Resources */,
-				64DFA7B1B9E22740D15E7AD9 /* [CP] Embed Pods Frameworks */,
+				274133E3033FBEB361D1A3D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +131,7 @@
 				TargetAttributes = {
 					5E6A06CC21DE87D8002A5EAF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -169,6 +167,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		274133E3033FBEB361D1A3D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UnderLineTextField/UnderLineTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnderLineTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		53F01C634CC4B5140952DBC6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,28 +211,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64DFA7B1B9E22740D15E7AD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoCurrencyKit/CryptoCurrencyKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoCurrencyKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -224,7 +222,6 @@
 				5E495C37223586A8002BEEDD /* CoinAPI.swift in Sources */,
 				5EC5F360223E91C00003D85F /* FiatAPI.swift in Sources */,
 				5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */,
-				5EC5F36222417CFB0003D85F /* ConverterTableViewController.swift in Sources */,
 				5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +378,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "george.ashton.Simple-Crypto-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -400,7 +397,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "george.ashton.Simple-Crypto-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
