@@ -18,6 +18,9 @@ class CryptoTableViewController: UITableViewController {
     var cryptoPrice: Double?
     var cryptoSymbol = ""
     
+    // Search Bar
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +29,6 @@ class CryptoTableViewController: UITableViewController {
         
         self.tableView.backgroundColor = UIColor.black
         tableView.separatorColor = UIColor.lightGray
-        
         
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
@@ -82,12 +84,35 @@ class CryptoTableViewController: UITableViewController {
         
         cell.sizeToFit()
         
-        // Cell Image Icon 
+        // Cell Image Icon
+//        let session = URLSession.shared
+        
+        // Refactor for error needed
         let imageUrl = URL(string: crypto.icon)!
-        let imageData = try! Data(contentsOf: imageUrl)
+        let imageData = try! Data(contentsOf : imageUrl)
         let image = UIImage(data: imageData)
         cell.imageView?.image = image
-     
+    
+        
+        
+        
+//       let task = session.dataTask(with: imageUrl, completionHandler: { data, response, error in
+//            if error != nil || data == nil {
+//                print("Client error!")
+//                return
+//            }
+//            do {
+//                DispatchQueue.main.sync {
+//                let imageData = try! Data(contentsOf : imageUrl)
+//                let image = UIImage(data: imageData)
+//                cell.imageView?.image = image
+//               tableView.reloadData()
+//                }
+//            } catch {
+//                print("Icon error: \(error.localizedDescription)")
+//            }
+//        });task.resume()
+        
         return cell
     }
 
@@ -127,5 +152,12 @@ class CryptoTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension CryptoTableViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
 }
 
