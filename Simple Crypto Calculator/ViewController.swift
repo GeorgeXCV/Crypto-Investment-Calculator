@@ -62,6 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             cryptoName.removeLast(6)
             cryptoNameButton.setTitle(cryptoName, for: .normal)
             investAmount.isEnabled = true
+            worthAmount.isEnabled = true
         }
         
         performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
@@ -158,14 +159,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
         // If text value exists, perform below code
-        guard let text = investAmount.text else {
+        guard let text = investAmount.text, let text2 = worthAmount.text else {
             return
         }
         if let invest = Double(text) { // If we can convert value of textfield to Double
          if let coinPrice = cryptoPrice { // And if cryptoPrice has a value
             let coinPriceConverted = coinPrice * rate   // Convert price using exchange rate of selected currency
             coinsBought = invest / coinPriceConverted // Investment amount / current coin price = How many coins we would buy
-            worthAmount.isEnabled = true
+//            worthAmount.isEnabled = true
+            if let projection = Double(text2) { // If worthAmount has text to convert to Double
+                totalValue = coinsBought * projection  // Amount of coins we can buy * Projected value per coin = Investment worth
+                
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.usesGroupingSeparator = true
+                currencyFormatter.numberStyle = .currency
+                //          currencyFormatter.locale = Locale.current
+                currencyFormatter.currencySymbol = symbols[buttonCounter]
+                
+                // Round up answer
+                wouldBe.text = "= " + currencyFormatter.string(for: totalValue)!
+                
+                //            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
+                
+                //           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
+            }
         }
     }
 }
@@ -173,26 +190,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // When projected value of coin entered
     @IBAction func projectionEntered(_ sender: Any) {
         // If both text fields have text, run the code below
-        guard let text = worthAmount.text, let text2 = investAmount.text else {
+        guard let text = investAmount.text, let text2 = worthAmount.text else {
             return
         }
         
-        if let projection = Double(text) { // If worthAmount has text to convert to Double
-            totalValue = coinsBought * projection  // Amount of coins we can buy * Projected value per coin = Investment worth
+        if let invest = Double(text) { // If we can convert value of textfield to Double
+            if let coinPrice = cryptoPrice { // And if cryptoPrice has a value
+                let coinPriceConverted = coinPrice * rate   // Convert price using exchange rate of selected currency
+                coinsBought = invest / coinPriceConverted // Investment amount / current coin price = How many coins we would buy
+    
+        
+                if let projection = Double(text2) { // If worthAmount has text to convert to Double
+                    totalValue = coinsBought * projection  // Amount of coins we can buy * Projected value per coin = Investment worth
             
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.usesGroupingSeparator = true
-            currencyFormatter.numberStyle = .currency
+                    let currencyFormatter = NumberFormatter()
+                    currencyFormatter.usesGroupingSeparator = true
+                    currencyFormatter.numberStyle = .currency
 //          currencyFormatter.locale = Locale.current
-            currencyFormatter.currencySymbol = symbols[buttonCounter]
+                    currencyFormatter.currencySymbol = symbols[buttonCounter]
             
-            // Round up answer
-            wouldBe.text = "= " + currencyFormatter.string(for: totalValue)!
+                    // Round up answer
+                    wouldBe.text = "= " + currencyFormatter.string(for: totalValue)!
             
 //            priceLabel.text = currencySelected + currencyFormatter.string(for: bitcoinResult)!
             
 //           wouldBe.text = "\(totalValue)" // Add the total value to investment worth label
-     }
+      }
+    }
+ }
 }
     
     @objc func showError() {
