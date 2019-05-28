@@ -45,6 +45,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var coinsBought: Double = 0
     var totalValue: Double = 0
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -221,7 +226,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 }
     
     @objc func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Network Error", message: "We can't get price data! Please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }

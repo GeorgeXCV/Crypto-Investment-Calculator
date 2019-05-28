@@ -29,6 +29,7 @@ class CryptoTableViewController: UITableViewController {
         
         self.tableView.backgroundColor = UIColor.black
         tableView.separatorColor = UIColor.lightGray
+        tableView.indicatorStyle = UIScrollView.IndicatorStyle.white;
         
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
@@ -143,7 +144,7 @@ class CryptoTableViewController: UITableViewController {
     }
 
     @objc func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Network Error", message: "We can't get price data! Please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
@@ -154,10 +155,10 @@ class CryptoTableViewController: UITableViewController {
     
 }
 
-extension CryptoTableViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
-}
+//extension CryptoTableViewController: UISearchResultsUpdating {
+//    // MARK: - UISearchResultsUpdating Delegate
+//    func updateSearchResults(for searchController: UISearchController) {
+//        // TODO
+//    }
+//}
 
