@@ -48,7 +48,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="9zH-Aa-zxg" kind="showDetail" id="KL7-bH-18F"/>
+                                                    <segue destination="9zH-Aa-zxg" kind="showDetail" identifier="" id="KL7-bH-18F"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Price =" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-o5-FDm">
@@ -97,6 +97,11 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="investmentEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yeH-5c-jrj"/>
                                                         </connections>
@@ -135,6 +140,11 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="projectionEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="aCr-BA-INv"/>
                                                         </connections>
@@ -229,6 +239,7 @@
                                         <color key="tintColor" red="1" green="0.36267208829999997" blue="0.22091847619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="cancelTapped:" destination="9zH-Aa-zxg" id="ExT-qg-Vsn"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="cryptoSelected" id="hq0-51-zIA"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>

@@ -12,6 +12,9 @@ import GoogleMobileAds
 // Tracker for currecny selection button
 public var buttonCounter = 0
 
+// Text Field Length
+private var __maxLengths = [UITextField: Int]()
+
 class ViewController: UIViewController, UITextFieldDelegate {
     
      var bannerView: GADBannerView! // Ad Banner
@@ -45,11 +48,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var coinsBought: Double = 0
     var totalValue: Double = 0
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
    
@@ -70,6 +68,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             investAmount.isEnabled = true
             worthAmount.isEnabled = true
         }
+        
+       
         
         performSelector(onMainThread: #selector(fetchJSON), with: nil, waitUntilDone: false)
 //        performSelector(inBackground: #selector(fetchJSON), with: nil)
@@ -165,6 +165,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // When investment amount eneted
     @IBAction func investmentEntered(_ sender: Any) {
         // If text value exists, perform below code
+        
         guard let text = investAmount.text, let text2 = worthAmount.text else {
             return
         }
@@ -226,12 +227,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
  }
 }
     
+
+    
     @objc func showError() {
         let ac = UIAlertController(title: "Network Error", message: "We can't get price data! Please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
- 
+    
     // If I invest £100 in EOS which is £1.85 a coin, £100 / £1.85 = 54 Coins. If value per coin goes up to £10, (54 * 10), my investment is worth £540
     
     // Google Ad Banner
@@ -320,4 +323,34 @@ extension UIButton {
         
         self.setAttributedTitle(attributedString, for: .normal)
     }
+}
+
+extension UITextField {
+    @IBInspectable var maxLength: Int {
+        get {
+            guard let l = __maxLengths[self] else {
+                return 150 // (global default-limit. or just, Int.max)
+            }
+            return l
+        }
+        set {
+            __maxLengths[self] = newValue
+            addTarget(self, action: #selector(fix), for: .editingChanged)
+        }
+    }
+    @objc func fix(textField: UITextField) {
+        let t = textField.text
+        textField.text = t?.safelyLimitedTo(length: maxLength)
+    }
+}
+
+extension String
+{
+    func safelyLimitedTo(length n: Int)->String {
+        if (self.count <= n) {
+            return self
+        }
+        return String( Array(self).prefix(upTo: n) )
+    }
+    
 }
