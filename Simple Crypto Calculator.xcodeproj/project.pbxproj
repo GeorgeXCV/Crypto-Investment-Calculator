@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31A9693F81F04E087BC3B20E /* Pods_Simple_Crypto_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F23B5CFBC27BB00E592E8 /* Pods_Simple_Crypto_Calculator.framework */; };
+		5E4667C522A6F14300CD9D44 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4667C422A6F14300CD9D44 /* ConverterViewController.swift */; };
 		5E495C37223586A8002BEEDD /* CoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E495C36223586A8002BEEDD /* CoinAPI.swift */; };
 		5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */; };
 		5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06D221DE87D8002A5EAF /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		50638219555C670AFCC8E109 /* Pods-Simple Crypto Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Crypto Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Crypto Calculator/Pods-Simple Crypto Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		5E4667C422A6F14300CD9D44 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		5E495C36223586A8002BEEDD /* CoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPI.swift; sourceTree = "<group>"; };
 		5E6A06CD21DE87D8002A5EAF /* Simple Crypto Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Crypto Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				5E6A06D021DE87D8002A5EAF /* AppDelegate.swift */,
 				5E6A06D221DE87D8002A5EAF /* ViewController.swift */,
 				5EE1C2CE21E9187F007535CD /* CryptoTableViewController.swift */,
+				5E4667C422A6F14300CD9D44 /* ConverterViewController.swift */,
 				5E495C36223586A8002BEEDD /* CoinAPI.swift */,
 				5EC5F35F223E91C00003D85F /* FiatAPI.swift */,
 				5E6A06D421DE87D8002A5EAF /* Main.storyboard */,
@@ -225,6 +228,7 @@
 				5EC5F360223E91C00003D85F /* FiatAPI.swift in Sources */,
 				5E6A06D321DE87D8002A5EAF /* ViewController.swift in Sources */,
 				5E6A06D121DE87D8002A5EAF /* AppDelegate.swift in Sources */,
+				5E4667C522A6F14300CD9D44 /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

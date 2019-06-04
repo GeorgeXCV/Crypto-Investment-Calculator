@@ -237,6 +237,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // If I invest £100 in EOS which is £1.85 a coin, £100 / £1.85 = 54 Coins. If value per coin goes up to £10, (54 * 10), my investment is worth £540
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // If go back segue has been triggered
+        if segue.identifier == "priceTableSelected" {
+            let vc = segue.destination as! ConverterViewController
+            vc.currencies = currencies
+            vc.symbols = symbols
+            vc.exchangerates = exchangerates
+            vc.rate = rate 
+            
+        }
+    }
+    
     // Google Ad Banner
     
     func addBannerViewToView(_ bannerView: GADBannerView) {

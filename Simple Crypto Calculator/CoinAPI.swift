@@ -17,7 +17,8 @@ struct Cryptocurrency: Codable {
     var symbol: String 
     var icon: String
     var price: Double
-    
+    var rank: Int
+    var priceChange1d: Double
 }
 
 
