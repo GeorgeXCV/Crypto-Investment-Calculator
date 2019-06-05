@@ -107,9 +107,17 @@ class ConverterViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.cryptoLabel?.text = crypto.name
         cell.cryptoLabel?.textColor = UIColor.white
         
+        
         cell.priceChangeLabel?.text = "\(crypto.priceChange1d)" + "% "
         
-        cell.priceLabel?.text = "\(crypto.price * rate)"
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencySymbol = symbols[buttonCounter]
+        
+        let totalValue = crypto.price * rate
+        
+        cell.priceLabel?.text = currencyFormatter.string(for: totalValue)!
 
 //        cell.priceChangeLabel?.textColor = UIColor.white
         if crypto.priceChange1d < 0 {

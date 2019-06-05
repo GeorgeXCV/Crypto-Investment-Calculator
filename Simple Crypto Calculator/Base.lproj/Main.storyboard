@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,16 +10,144 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ConverterViewController-->
+        <scene sceneID="UHv-2q-WGx">
+            <objects>
+                <viewController title="ConverterViewController" id="1Vd-PX-T6J" customClass="ConverterViewController" customModule="Simple_Crypto_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o67-xr-21Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eGr-eh-YCx">
+                                <rect key="frame" x="0.0" y="67" width="320" height="501"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="9eS-pK-Pg7" customClass="CustomCell" customModule="Simple_Crypto_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9eS-pK-Pg7" id="G2g-O1-uJ4">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-o0-RQX">
+                                                    <rect key="frame" x="3" y="7" width="22.5" height="25.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22.5" id="bX0-oE-HTA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="-10.95%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-ec-JCm">
+                                                    <rect key="frame" x="166.5" y="11" width="57" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="£6000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofP-3S-Fov">
+                                                    <rect key="frame" x="233.5" y="11" width="71.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Bitcoin Bitcoin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2u-eO-ND3">
+                                                    <rect key="frame" x="58" y="11" width="98" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="98" id="Zmu-xK-Rpd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3Z-XU-3eS">
+                                                    <rect key="frame" x="27.5" y="7" width="25.5" height="25.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25.5" id="D52-Yp-1if"/>
+                                                        <constraint firstAttribute="height" constant="25.5" id="W1J-Cm-0rd"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uiD-o0-RQX" firstAttribute="leading" secondItem="G2g-O1-uJ4" secondAttribute="leading" constant="3" id="992-6r-XaO"/>
+                                                <constraint firstItem="eLz-ec-JCm" firstAttribute="top" secondItem="G2g-O1-uJ4" secondAttribute="topMargin" id="9Wl-IH-58y"/>
+                                                <constraint firstItem="I2u-eO-ND3" firstAttribute="top" secondItem="G2g-O1-uJ4" secondAttribute="topMargin" id="IzG-Ml-I0a"/>
+                                                <constraint firstItem="l3Z-XU-3eS" firstAttribute="top" secondItem="G2g-O1-uJ4" secondAttribute="top" constant="7" id="Jhr-RS-3bo"/>
+                                                <constraint firstItem="ofP-3S-Fov" firstAttribute="leading" secondItem="eLz-ec-JCm" secondAttribute="trailing" constant="10" id="Kxf-TR-PEk"/>
+                                                <constraint firstItem="eLz-ec-JCm" firstAttribute="leading" secondItem="I2u-eO-ND3" secondAttribute="trailing" constant="10.5" id="MeR-gH-Z22"/>
+                                                <constraint firstItem="ofP-3S-Fov" firstAttribute="bottom" secondItem="G2g-O1-uJ4" secondAttribute="bottomMargin" id="RA1-L2-Ykb"/>
+                                                <constraint firstItem="I2u-eO-ND3" firstAttribute="bottom" secondItem="G2g-O1-uJ4" secondAttribute="bottomMargin" id="Rl0-cu-jP4"/>
+                                                <constraint firstItem="eLz-ec-JCm" firstAttribute="bottom" secondItem="G2g-O1-uJ4" secondAttribute="bottomMargin" id="brE-6u-dh2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ofP-3S-Fov" secondAttribute="trailing" id="gNf-Xq-vfi"/>
+                                                <constraint firstAttribute="bottom" secondItem="uiD-o0-RQX" secondAttribute="bottom" constant="7" id="guT-vi-o0x"/>
+                                                <constraint firstItem="uiD-o0-RQX" firstAttribute="top" secondItem="G2g-O1-uJ4" secondAttribute="top" constant="7" id="jNs-lG-HsO"/>
+                                                <constraint firstItem="I2u-eO-ND3" firstAttribute="leading" secondItem="l3Z-XU-3eS" secondAttribute="trailing" constant="5" id="nUr-Q7-8qX"/>
+                                                <constraint firstItem="ofP-3S-Fov" firstAttribute="top" secondItem="G2g-O1-uJ4" secondAttribute="topMargin" id="qee-98-TYA"/>
+                                                <constraint firstAttribute="bottom" secondItem="l3Z-XU-3eS" secondAttribute="bottom" constant="10.5" id="tos-fK-89d"/>
+                                                <constraint firstItem="l3Z-XU-3eS" firstAttribute="leading" secondItem="uiD-o0-RQX" secondAttribute="trailing" constant="2" id="wxa-RW-Enj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="coinImage" destination="l3Z-XU-3eS" id="F9g-Hq-0J3"/>
+                                            <outlet property="cryptoLabel" destination="I2u-eO-ND3" id="kDT-n4-yjQ"/>
+                                            <outlet property="priceChangeLabel" destination="eLz-ec-JCm" id="TJC-Ka-PX1"/>
+                                            <outlet property="priceLabel" destination="ofP-3S-Fov" id="U1E-ec-Aga"/>
+                                            <outlet property="rankLabel" destination="uiD-o0-RQX" id="gph-V5-Md5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Vd-PX-T6J" id="RqQ-HV-TLx"/>
+                                    <outlet property="delegate" destination="1Vd-PX-T6J" id="4kL-dd-4mN"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="niJ-o8-92j">
+                                <rect key="frame" x="93" y="20" width="135" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="t7B-zk-i6V"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Prices"/>
+                                    <segment title="Calculator"/>
+                                </segments>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="JhA-vC-HRK"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kXJ-0d-O0C" firstAttribute="bottom" secondItem="eGr-eh-YCx" secondAttribute="bottom" id="0IW-RE-Uta"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="trailing" secondItem="kXJ-0d-O0C" secondAttribute="trailing" id="99P-aW-zou"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="leading" secondItem="kXJ-0d-O0C" secondAttribute="leading" id="KA0-oq-nNp"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="leading" secondItem="kXJ-0d-O0C" secondAttribute="leading" id="KFh-j8-vbr"/>
+                            <constraint firstItem="niJ-o8-92j" firstAttribute="top" secondItem="kXJ-0d-O0C" secondAttribute="top" id="KPt-RZ-6N0"/>
+                            <constraint firstItem="niJ-o8-92j" firstAttribute="leading" secondItem="kXJ-0d-O0C" secondAttribute="leading" constant="93" id="Kqe-YN-rqZ"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="top" secondItem="niJ-o8-92j" secondAttribute="bottom" constant="19" id="Qw7-vr-sr2"/>
+                            <constraint firstItem="kXJ-0d-O0C" firstAttribute="trailing" secondItem="niJ-o8-92j" secondAttribute="trailing" constant="92" id="c6s-VX-wqw"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="trailing" secondItem="kXJ-0d-O0C" secondAttribute="trailing" id="qWx-JD-BHW"/>
+                            <constraint firstItem="eGr-eh-YCx" firstAttribute="bottom" secondItem="kXJ-0d-O0C" secondAttribute="bottom" id="u5i-NK-sfV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kXJ-0d-O0C"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="eGr-eh-YCx" id="bcF-gj-Ab4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3m-wp-nbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588.125" y="52.816901408450704"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Simple_Crypto_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiJ-oX-aps">
-                                <rect key="frame" x="344" y="49" width="60" height="35"/>
+                                <rect key="frame" x="250" y="25" width="60" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SiJ-oX-aps" secondAttribute="height" multiplier="2:1" constant="-10" id="Rih-jA-c0k"/>
                                     <constraint firstAttribute="height" constant="35" id="enI-NA-UYz"/>
@@ -33,13 +161,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RNC-yJ-Qf3">
-                                <rect key="frame" x="10" y="94" width="394" height="718"/>
+                                <rect key="frame" x="10" y="70" width="300" height="448"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LHO-jP-pAK">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="214.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="134"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6h-u7-UeD">
-                                                <rect key="frame" x="88.5" y="0.0" width="217" height="50"/>
+                                                <rect key="frame" x="41.5" y="0.0" width="217" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="zPo-Zo-wqg"/>
                                                 </constraints>
@@ -52,7 +180,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Price =" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-o5-FDm">
-                                                <rect key="frame" x="143" y="94" width="108" height="34"/>
+                                                <rect key="frame" x="96" y="53.5" width="108" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="Qz1-v0-WQo"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="vuo-Wo-gbo"/>
@@ -62,7 +190,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you invest" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-Y4-NrT">
-                                                <rect key="frame" x="118.5" y="171.5" width="157" height="43"/>
+                                                <rect key="frame" x="71.5" y="91" width="157" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="157" id="ArO-1A-c2J"/>
                                                     <constraint firstAttribute="height" constant="43" id="Fac-N0-oPO"/>
@@ -74,10 +202,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="26I-3T-hb6">
-                                        <rect key="frame" x="0.0" y="234.5" width="394" height="196"/>
+                                        <rect key="frame" x="0.0" y="154" width="300" height="122"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-cT-6ER">
-                                                <rect key="frame" x="66" y="0.0" width="262" height="30"/>
+                                                <rect key="frame" x="19" y="0.0" width="262" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJX-8O-mTa">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
@@ -109,7 +237,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Chb-DN-EUE">
-                                                <rect key="frame" x="110" y="85" width="174" height="26"/>
+                                                <rect key="frame" x="63" y="48" width="174" height="26"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and it goes to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFp-9j-vaX">
                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="26"/>
@@ -120,7 +248,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5F-fR-fPU">
-                                                <rect key="frame" x="66" y="166" width="262" height="30"/>
+                                                <rect key="frame" x="19" y="92" width="262" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-fG-mNd">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
@@ -154,10 +282,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-PT-Gd2">
-                                        <rect key="frame" x="0.0" y="450.5" width="394" height="267.5"/>
+                                        <rect key="frame" x="0.0" y="296" width="300" height="152"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="per coin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsN-cb-o4d">
-                                                <rect key="frame" x="137" y="0.0" width="120" height="40"/>
+                                                <rect key="frame" x="90" y="0.0" width="120" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="YsN-cb-o4d" secondAttribute="height" multiplier="3:1" id="4fu-Ex-nnf"/>
                                                     <constraint firstAttribute="height" constant="40" id="zU7-7X-oYM"/>
@@ -166,8 +294,8 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you're investment would be worth:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D1-xP-Erw">
-                                                <rect key="frame" x="65.5" y="103" width="263" height="52"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your investment would be worth:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D1-xP-Erw">
+                                                <rect key="frame" x="18.5" y="45" width="263" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="C3M-WD-ltn"/>
                                                     <constraint firstAttribute="width" secondItem="8D1-xP-Erw" secondAttribute="height" multiplier="263:52" id="VP1-87-dqr"/>
@@ -177,7 +305,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="= $" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueh-tT-TlZ">
-                                                <rect key="frame" x="47" y="217.5" width="300" height="50"/>
+                                                <rect key="frame" x="0.0" y="102" width="300" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="8LS-J2-K9X"/>
                                                     <constraint firstAttribute="width" secondItem="ueh-tT-TlZ" secondAttribute="height" multiplier="6:1" id="mGG-21-jfp"/>
@@ -190,6 +318,17 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m5S-D6-8hv">
+                                <rect key="frame" x="89" y="28" width="143" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Calculator"/>
+                                    <segment title="Prices"/>
+                                </segments>
+                                <connections>
+                                    <segue destination="1Vd-PX-T6J" kind="showDetail" identifier="priceTableSelected" id="bBA-6m-Hd5"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -224,11 +363,11 @@
             <objects>
                 <tableViewController title="Currency" id="9zH-Aa-zxg" customClass="CryptoTableViewController" customModule="Simple_Crypto_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4nr-Q3-j0z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="black" translucent="NO" id="HjR-rt-E7K">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="265" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textAttributes key="titleTextAttributes">
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -247,10 +386,10 @@
                         </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="o9P-3j-DaC">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o9P-3j-DaC" id="gre-PA-UnL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -266,4 +405,7 @@
             <point key="canvasLocation" x="3633" y="22"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JhA-vC-HRK"/>
+    </inferredMetricsTieBreakers>
 </document>
