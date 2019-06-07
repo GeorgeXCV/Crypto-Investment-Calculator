@@ -244,7 +244,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             vc.currencies = currencies
             vc.symbols = symbols
             vc.exchangerates = exchangerates
-            vc.rate = rate 
+            vc.rate = rate
             
         }
     }
